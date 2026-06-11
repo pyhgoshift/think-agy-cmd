@@ -24,7 +24,7 @@ export default function Navigation() {
       {/* PC Sidebar */}
       <nav className="hidden md:flex flex-col w-64 bg-zinc-900 border-r border-zinc-800 h-full py-6 px-4">
         <div className="mb-10 px-2">
-          <h1 className="text-xl font-bold tracking-wider text-primary">PYHGOSHIFT<br/><span className="text-white text-sm">THINK AGY RESULT VIEW</span></h1>
+          <h1 className="text-xl font-bold tracking-wider text-primary">PYHGOSHIFT<br/><span className="text-white text-sm">EXECUTION (실행)</span></h1>
         </div>
         <div className="flex flex-col gap-2">
           {NAV_ITEMS.map((item) => {
