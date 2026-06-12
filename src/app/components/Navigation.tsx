@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { MessageSquare, Activity, Clock, BarChart2, Target, FileText, Grid, Globe } from "lucide-react";
+import { MessageSquare, Activity, Clock, BarChart2, Target, FileText, Grid, Globe, FileKey } from "lucide-react";
 
 const NAV_ITEMS = [
   { id: "chat", name: "CHAT", path: "/", icon: MessageSquare },
@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { id: "trading", name: "TRADING AGENT", path: "/trading", icon: BarChart2 },
   { id: "pitch", name: "BUSINESS PITCH", path: "/competition", icon: Target },
   { id: "domain", name: "DOMAIN", path: "/domain", icon: Globe },
+  { id: "lesson", name: "PDF LESSON", path: "/lesson", icon: FileKey },
   { id: "report", name: "REPORT", path: "/report", icon: FileText },
   { id: "graph", name: "GRAPH", path: "/graph", icon: Grid },
 ];
