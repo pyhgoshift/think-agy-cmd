@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import { MessageSquare, Activity, Clock, BarChart2, Target, FileText, Grid, Globe, FileKey } from "lucide-react";
 
 const NAV_ITEMS = [
-  { id: "chat", name: "CHAT", path: "/", icon: MessageSquare },
-  { id: "live", name: "LIVE", path: "/live", icon: Activity },
   { id: "history", name: "HISTORY", path: "/history", icon: Clock },
   { id: "trading", name: "TRADING AGENT", path: "/trading", icon: BarChart2 },
   { id: "pitch", name: "BUSINESS PITCH", path: "/competition", icon: Target },
