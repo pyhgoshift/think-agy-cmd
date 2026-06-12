@@ -52,15 +52,15 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Bottom Nav */}
-      <nav className="md:hidden flex items-center justify-around bg-zinc-900/90 backdrop-blur-lg border-t border-zinc-800 h-16 fixed bottom-0 w-full z-50 px-2">
-        {NAV_ITEMS.slice(0, 5).map((item) => {
+      <nav className="md:hidden flex items-center justify-start overflow-x-auto no-scrollbar bg-zinc-900/90 backdrop-blur-lg border-t border-zinc-800 h-16 fixed bottom-0 w-full z-50 px-2 pb-safe">
+        {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.path;
           const Icon = item.icon;
           return (
-            <Link key={item.id} href={item.path} className="flex-1">
+            <Link key={item.id} href={item.path} className="shrink-0 min-w-[72px]">
               <motion.div
                 whileTap={{ scale: 0.9 }}
-                className={`flex flex-col items-center justify-center h-full gap-1 ${
+                className={`flex flex-col items-center justify-center h-16 gap-1 ${
                   isActive ? "text-primary" : "text-zinc-500 hover:text-zinc-300"
                 }`}
               >
