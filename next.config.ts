@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/proxy/:path*',
-        destination: `${backendUrl}/:path*`,
+        destination: `${backendUrl}/proxy/:path*`,
       },
     ]
   },

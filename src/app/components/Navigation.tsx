@@ -8,6 +8,7 @@ import { MessageSquare, Activity, Clock, BarChart2, Target, FileText, Grid, Glob
 const NAV_ITEMS = [
   { id: "history", name: "HISTORY", path: "/history", icon: Clock },
   { id: "trading", name: "TRADING AGENT", path: "/trading", icon: BarChart2 },
+  { id: "pitch", name: "BUSINESS PITCH", path: "/competition", icon: Target },
   { id: "domain", name: "DOMAIN", path: "/domain", icon: Globe },
   { id: "lesson", name: "PDF LESSON", path: "/lesson", icon: FileKey },
   { id: "report", name: "REPORT", path: "/report", icon: FileText },
