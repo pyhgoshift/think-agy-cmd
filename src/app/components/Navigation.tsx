@@ -23,7 +23,11 @@ export default function Navigation() {
       {/* PC Sidebar (EXECUTION WINDOW) */}
       <nav className="hidden md:flex flex-col w-64 bg-zinc-900 border-r border-zinc-800 h-full py-6 px-4">
         <div className="mb-10 px-2">
-          <h1 className="text-xl font-bold tracking-wider text-primary">PYHGOSHIFT<br/><span className="text-white text-sm">EXECUTION CENTER (실행)</span></h1>
+          <h1 className="text-xl font-bold tracking-wider text-primary">
+            PYHGOSHIFT<br/>
+            <span className="text-white text-sm">COMMAND CENTER (명령)</span><br/>
+            <span className="text-xs text-gray-400 font-normal">v2026.06.14</span>
+          </h1>
         </div>
         <div className="flex flex-col gap-2">
           {NAV_ITEMS.map((item) => {
