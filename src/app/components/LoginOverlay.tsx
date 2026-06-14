@@ -49,8 +49,11 @@ export default function LoginOverlay({ onLoginSuccess }: LoginOverlayProps) {
               </div>
             </div>
             
-            <h1 className="text-2xl font-bold text-center text-white mb-2 tracking-widest">NEXUS</h1>
-            <p className="text-zinc-400 text-center text-sm mb-8">Enter command code to access</p>
+            <h1 className="text-2xl font-bold text-center text-white mb-2 tracking-widest">
+              PYHGOSHIFT<br/>
+              <span className="text-sm text-primary tracking-normal">ThinkPad AGY Remoter</span>
+            </h1>
+            <p className="text-zinc-400 text-center text-xs mb-8">Enter command code to access</p>
             
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
               <div className="relative">
