@@ -22,7 +22,7 @@ export default function Navigation() {
           <h1 className="text-xl font-bold tracking-wider text-primary">
             PYHGOSHIFT<br/>
             <span className="text-white text-sm">COMMAND CENTER (명령)</span><br/>
-            <span className="text-xs text-gray-400 font-normal">v2026.06.14</span>
+            <span className="text-xs text-gray-400 font-normal">v2.1.0 (2026.06.14 12:53)</span>
           </h1>
         </div>
         <div className="flex flex-col gap-2">
