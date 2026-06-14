@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import AuthWrapper from "./components/AuthWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PyhgoShift Nexus",
-  description: "Unified AI Agent Framework",
+  title: "PyhgoShift CMD",
+  description: "Unified AI Agent Command Center",
 };
 
 export default function RootLayout({
@@ -28,10 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white h-screen flex flex-col md:flex-row overflow-hidden`}
       >
-        <Navigation />
-        <main className="flex-1 flex flex-col h-full overflow-hidden bg-zinc-950 relative pb-16 md:pb-0">
-          {children}
-        </main>
+        <AuthWrapper>
+          <Navigation />
+          <main className="flex-1 flex flex-col h-full overflow-hidden bg-zinc-950 relative pb-[70px] md:pb-0">
+            {children}
+          </main>
+        </AuthWrapper>
       </body>
     </html>
   );
