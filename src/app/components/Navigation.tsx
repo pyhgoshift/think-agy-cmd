@@ -17,12 +17,12 @@ export default function Navigation() {
   return (
     <>
       {/* PC Sidebar (COMMAND WINDOW) */}
-      <nav className="hidden md:flex flex-col w-64 bg-zinc-900 border-r border-zinc-800 h-full py-6 px-4">
+      <nav className="hidden md:flex flex-col w-64 bg-teal-950/40 border-r border-teal-900/50 h-full py-6 px-4">
         <div className="mb-10 px-2">
-          <h1 className="text-xl font-bold tracking-wider text-primary">
+          <h1 className="text-xl font-bold tracking-wider text-teal-400">
             PYHGOSHIFT<br/>
             <span className="text-white text-sm">COMMAND CENTER (명령)</span><br/>
-            <span className="text-xs text-gray-400 font-normal">v2.1.0 (2026.06.14 12:53)</span>
+            <span className="text-xs text-teal-500/70 font-normal">v2.1.1 (2026.06.14 13:04)</span>
           </h1>
         </div>
         <div className="flex flex-col gap-2">
@@ -36,11 +36,11 @@ export default function Navigation() {
                   whileTap={{ scale: 0.98 }}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                     isActive 
-                      ? "bg-primary/20 text-primary border border-primary/30" 
-                      : "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                      ? "bg-teal-500/20 text-teal-400 border border-teal-500/30 shadow-[0_0_15px_rgba(20,184,166,0.1)]" 
+                      : "text-zinc-400 hover:text-white hover:bg-teal-900/40"
                   }`}
                 >
-                  <Icon size={20} className={isActive ? "text-primary" : ""} />
+                  <Icon size={20} className={isActive ? "text-teal-400" : ""} />
                   <span className="font-medium text-sm">{item.name}</span>
                 </motion.div>
               </Link>
