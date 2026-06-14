@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { History, Smartphone, Monitor } from "lucide-react";
+import { History, Smartphone, Monitor, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HistoryItem {
@@ -127,6 +127,3 @@ export default function HistoryPage() {
     </div>
   );
 }
-
-// Add Clock to imports since we use it above but didn't import it.
-import { Clock } from "lucide-react";
