@@ -16,7 +16,8 @@ export default function LoginOverlay({ onLoginSuccess }: LoginOverlayProps) {
   // Default password: admin (since no DB auth is specified)
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "admin" || password === "pyhgo") {
+    const pw = password.toLowerCase();
+    if (pw === "admin" || pw === "pyhgo") {
       setIsLocked(false);
       setTimeout(() => {
         onLoginSuccess();
