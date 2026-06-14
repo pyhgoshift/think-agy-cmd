@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://www.pyhgoshift.com';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://ta-cmd.pyhgoshift.com';
     return [
       {
         source: '/api/:path*',
