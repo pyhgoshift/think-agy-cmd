@@ -92,10 +92,21 @@ export default function Home() {
           const data = await response.json();
           if (data.outbound && Array.isArray(data.outbound) && data.outbound.length > 0) {
             setMessages(prev => {
-              const newMessages = [...prev];
+              let newMessages = [...prev];
+              let shouldClear = false;
+              
               data.outbound.forEach((msg: string) => {
-                newMessages.push({ id: Date.now() + Math.random(), text: msg, role: "ai" });
+                if (msg.includes("[CLEAR_SCREEN]")) {
+                  shouldClear = true;
+                } else {
+                  newMessages.push({ id: Date.now() + Math.random(), text: msg, role: "ai" });
+                }
               });
+              
+              if (shouldClear) {
+                localStorage.removeItem("chat_history");
+                return [];
+              }
               return newMessages;
             });
           }
