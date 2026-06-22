@@ -36,7 +36,7 @@ export default function Home() {
       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       if (SpeechRecognition) {
         const reco = new SpeechRecognition();
-        reco.continuous = false;
+        reco.continuous = true; // Keep listening even if user pauses
         reco.interimResults = true;
         reco.lang = "ko-KR"; // Default to Korean
 
