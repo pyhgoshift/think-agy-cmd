@@ -122,6 +122,9 @@ export default function Home() {
                 localStorage.removeItem("chat_history");
                 return [];
               }
+              if (newMessages.length > 20) {
+                newMessages = newMessages.slice(newMessages.length - 20);
+              }
               return newMessages;
             });
           }
@@ -152,7 +155,13 @@ export default function Home() {
     }
     
     // Add user message immediately
-    setMessages(prev => [...prev, { id: Date.now(), text: messageText, role: "user" }]);
+    setMessages(prev => {
+      const newMsgs = [...prev, { id: Date.now(), text: messageText, role: "user" }];
+      if (newMsgs.length > 20) {
+        return newMsgs.slice(newMsgs.length - 20);
+      }
+      return newMsgs;
+    });
 
     try {
       await fetch("/api/msg", {
