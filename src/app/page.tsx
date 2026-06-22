@@ -5,9 +5,24 @@ import { MessageSquare, Send, Mic, MicOff } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const [messages, setMessages] = useState<{ id: number; text: string; role: "user" | "ai" }[]>([
-    { id: Date.now(), text: "시스템 초기화가 완료되었습니다. 음성 또는 텍스트로 명령을 내려주세요.", role: "ai" }
-  ]);
+  const [messages, setMessages] = useState<{ id: number; text: string; role: "user" | "ai" }[]>([]);
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("chat_history");
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch (e) {}
+    }
+  }, []);
+
+  // Save to localStorage on change
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem("chat_history", JSON.stringify(messages));
+    }
+  }, [messages]);
   const [inputValue, setInputValue] = useState("");
   const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
