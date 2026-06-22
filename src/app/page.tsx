@@ -27,8 +27,9 @@ export default function Home() {
   const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  // Speech Recognition API
   const [recognition, setRecognition] = useState<any>(null);
+  const shouldListenRef = useRef(false);
+  const finalTranscriptRef = useRef("");
 
   useEffect(() => {
     // Initialize SpeechRecognition if available
@@ -41,20 +42,31 @@ export default function Home() {
         reco.lang = "ko-KR"; // Default to Korean
 
         reco.onresult = (event: any) => {
-          let currentTranscript = "";
+          let interimTranscript = "";
           for (let i = event.resultIndex; i < event.results.length; ++i) {
-            currentTranscript += event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              finalTranscriptRef.current += event.results[i][0].transcript + " ";
+            } else {
+              interimTranscript += event.results[i][0].transcript;
+            }
           }
-          setInputValue(currentTranscript);
+          setInputValue(finalTranscriptRef.current + interimTranscript);
         };
 
         reco.onerror = (event: any) => {
           console.error("Speech recognition error", event.error);
-          setIsListening(false);
+          if (event.error === "not-allowed") {
+            shouldListenRef.current = false;
+            setIsListening(false);
+          }
         };
 
         reco.onend = () => {
-          setIsListening(false);
+          if (shouldListenRef.current) {
+            try { reco.start(); } catch (e) {}
+          } else {
+            setIsListening(false);
+          }
         };
 
         setRecognition(reco);
@@ -64,11 +76,14 @@ export default function Home() {
 
   const toggleListening = () => {
     if (isListening) {
+      shouldListenRef.current = false;
       recognition?.stop();
       setIsListening(false);
     } else {
-      setInputValue(""); // Clear before speaking
-      recognition?.start();
+      shouldListenRef.current = true;
+      setInputValue("");
+      finalTranscriptRef.current = "";
+      try { recognition?.start(); } catch (e) {}
       setIsListening(true);
     }
   };
@@ -127,9 +142,11 @@ export default function Home() {
     
     const messageText = inputValue.trim();
     setInputValue("");
+    finalTranscriptRef.current = "";
     
     // Stop listening if sending
     if (isListening) {
+      shouldListenRef.current = false;
       recognition?.stop();
       setIsListening(false);
     }
